@@ -1,9 +1,13 @@
+import json
+
 import numpy as np
 from Bio import SeqIO
 from Bio.Seq import Seq
 
 
 def find_seq_fast(seq: Seq, target: str, strain: str, max_mismatches=2):
+    if strain == '-':
+        seq = seq.reverse_complement()
     arr = np.frombuffer(
         str(seq).encode("ascii"),
         dtype=np.uint8
@@ -52,8 +56,27 @@ plasmid_seq = sequences[1].upper()
 
 start = 0
 target = 'TATAAT'
-Pribnow_box_res = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strain='+'))
-el_35 = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strain='+'))
 
+Pribnow_box_plus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strain='+'))
+el_35_plus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strain='+'))
 
-print(len(list(both_seq(el_35, Pribnow_box_res))))
+Pribnow_box_minus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strain='-'))
+el_35_minus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strain='-'))
+
+pl_Pribnow_box_plus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strain='+'))
+pl_el_35_plus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strain='+'))
+
+pl_Pribnow_box_minus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strain='-'))
+pl_el_35_minus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strain='-'))
+
+with open("jsons/pred_pr_chr_plus_chain.json", "w") as f:
+    json.dump(list(both_seq(el_35_plus, Pribnow_box_plus)), f)
+
+with open("jsons/pred_pr_chr_minus_chain.json", "w") as f:
+    json.dump(list(both_seq(el_35_minus, Pribnow_box_minus)), f)
+
+with open("jsons/pred_pr_pl_plus_chain.json", "w") as f:
+    json.dump(list(both_seq(pl_el_35_plus, pl_Pribnow_box_plus)), f)
+
+with open("jsons/pred_pr_pl_minus_chain.json", "w") as f:
+    json.dump(list(both_seq(pl_el_35_minus, pl_Pribnow_box_minus)), f)

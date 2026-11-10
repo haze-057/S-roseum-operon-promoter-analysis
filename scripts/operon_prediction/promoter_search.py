@@ -5,8 +5,8 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 
 
-def find_seq_fast(seq: Seq, target: str, strain: str, max_mismatches=2):
-    if strain == '-':
+def find_seq_fast(seq: Seq, target: str, strand: str, max_mismatches=2):
+    if strand == '-':
         seq = seq.reverse_complement()
     arr = np.frombuffer(
         str(seq).encode("ascii"),
@@ -27,7 +27,7 @@ def find_seq_fast(seq: Seq, target: str, strain: str, max_mismatches=2):
     positions = np.flatnonzero(errors <= max_mismatches)
 
     return [
-        (int(pos), int(pos + k), strain, int(errors[pos]))
+        (int(pos), int(pos + k), strand, int(errors[pos]))
         for pos in positions
     ]
 
@@ -41,11 +41,13 @@ def both_seq(list_1: list, list_2: list):
             a+=1
         else:
             b+=1
+    if (list_2[b][0] - list_1[a][0] <= 30) and (list_2[b][0] - list_1[a][0] >= 10):
+        yield (list_1[a][0], list_2[b][0])
 
 
 sequences = []
 
-for record in SeqIO.parse("genomic.fna", "fasta"):
+for record in SeqIO.parse("data/S_roseum/genomic.fna", "fasta"):
     print(record.id)
     print(len(record.seq))
     print(record.description)
@@ -57,26 +59,26 @@ plasmid_seq = sequences[1].upper()
 start = 0
 target = 'TATAAT'
 
-Pribnow_box_plus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strain='+'))
-el_35_plus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strain='+'))
+Pribnow_box_plus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strand='+'))
+el_35_plus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strand='+'))
 
-Pribnow_box_minus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strain='-'))
-el_35_minus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strain='-'))
+Pribnow_box_minus = list(find_seq_fast(seq=chromosome_seq,target='TATAAT',strand='-'))
+el_35_minus = list(find_seq_fast(seq=chromosome_seq, target='TTGACA',strand='-'))
 
-pl_Pribnow_box_plus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strain='+'))
-pl_el_35_plus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strain='+'))
+pl_Pribnow_box_plus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strand='+'))
+pl_el_35_plus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strand='+'))
 
-pl_Pribnow_box_minus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strain='-'))
-pl_el_35_minus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strain='-'))
+pl_Pribnow_box_minus = list(find_seq_fast(seq=plasmid_seq,target='TATAAT',strand='-'))
+pl_el_35_minus = list(find_seq_fast(seq=plasmid_seq, target='TTGACA',strand='-'))
 
 with open("jsons/pred_pr_chr_plus_chain.json", "w") as f:
-    json.dump(list(both_seq(el_35_plus, Pribnow_box_plus)), f)
+    json.dump(el_35_plus, f)
 
 with open("jsons/pred_pr_chr_minus_chain.json", "w") as f:
-    json.dump(list(both_seq(el_35_minus, Pribnow_box_minus)), f)
+    json.dump(el_35_minus, f)
 
 with open("jsons/pred_pr_pl_plus_chain.json", "w") as f:
-    json.dump(list(both_seq(pl_el_35_plus, pl_Pribnow_box_plus)), f)
+    json.dump(pl_el_35_plus, f)
 
 with open("jsons/pred_pr_pl_minus_chain.json", "w") as f:
-    json.dump(list(both_seq(pl_el_35_minus, pl_Pribnow_box_minus)), f)
+    json.dump(pl_el_35_minus, f)

@@ -1,3 +1,5 @@
+"""Extract protein-coding CDS rows from an NCBI feature table."""
+
 import argparse
 import csv
 from pathlib import Path

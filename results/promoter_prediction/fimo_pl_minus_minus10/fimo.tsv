@@ -1,9 +1,7 @@
 motif_id	motif_alt_id	sequence_name	start	stop	strand	score	p-value	q-value	matched_sequence
-TASVVT	MEME-1	0	146	151	+	5.56452	0.00521	1	CACGGT
-TASVVT	MEME-1	2	49	54	+	5.12903	0.00751	1	CACCCT
-TASVVT	MEME-1	2	253	258	+	5.12903	0.00751	1	CACCCT
-TASVVT	MEME-1	1	202	207	+	5.01613	0.00817	1	CACCGT
-TASVVT	MEME-1	1	229	234	+	5.01613	0.00817	1	CACCGT
+TASVVT	MEME-1	0	100	105	+	5.56452	0.00521	1	CACGGT
+TASVVT	MEME-1	1	280	285	+	5.3871	0.00609	1	GAGGGT
+TASVVT	MEME-1	1	235	240	+	5.16129	0.00733	1	CAGCCT
 
 # FIMO (Find Individual Motif Occurrences): Version 5.5.9 compiled on May 27 2026 at 12:41:17
 # The format of this file is described at https://meme-suite.org/meme/doc/fimo-output-format.html#tsv_results.

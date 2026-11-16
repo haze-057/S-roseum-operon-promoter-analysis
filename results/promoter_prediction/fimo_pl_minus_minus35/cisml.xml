@@ -82,65 +82,81 @@ clusterid CDATA #IMPLIED
 </parameters>
 <pattern accession="YGAC" name="MEME-1">
 <scanned-sequence accession="0" name="0">
-<matched-element start="125" stop="128" score="5.24138" pvalue="0.00383">
+<matched-element start="31" stop="34" score="5.24138" pvalue="0.00383">
 <sequence>TGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-<matched-element start="20" stop="23" score="4.81034" pvalue="0.00701">
-<sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<matched-element start="133" stop="136" score="5.24138" pvalue="0.00383">
+<sequence>TGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-<matched-element start="23" stop="26" score="4.81034" pvalue="0.00701">
+<matched-element start="68" stop="71" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-<matched-element start="185" stop="188" score="4.81034" pvalue="0.00701">
+<matched-element start="121" stop="124" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-<matched-element start="224" stop="227" score="4.81034" pvalue="0.00701">
+<matched-element start="171" stop="174" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-<matched-element start="230" stop="233" score="4.81034" pvalue="0.00701">
+<matched-element start="186" stop="189" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="286" stop="289" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="1" name="1">
-<matched-element start="9" stop="12" score="5.24138" pvalue="0.00383">
-<sequence>TGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
-</matched-element>
-<matched-element start="220" stop="223" score="4.81034" pvalue="0.00701">
+<matched-element start="58" stop="61" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
-</scanned-sequence>
-<scanned-sequence accession="2" name="2">
-<matched-element start="46" stop="49" score="4.81034" pvalue="0.00701">
+<matched-element start="62" stop="65" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
-</matched-element>
-<matched-element start="70" stop="73" score="4.81034" pvalue="0.00701">
-<sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
-</matched-element>
-<matched-element start="106" stop="109" score="4.81034" pvalue="0.00701">
-<sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
-</matched-element>
-<matched-element start="109" stop="112" score="4.81034" pvalue="0.00701">
-<sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
-</matched-element>
-<matched-element start="172" stop="175" score="4.81034" pvalue="0.00701">
-<sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
 <matched-element start="187" stop="190" score="4.81034" pvalue="0.00701">
 <sequence>CGAC</sequence>
-<mem:qvalue>0.258</mem:qvalue>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="193" stop="196" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+</scanned-sequence>
+<scanned-sequence accession="2" name="2">
+<matched-element start="33" stop="36" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="76" stop="79" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="91" stop="94" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="163" stop="166" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="166" stop="169" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="169" stop="172" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
+</matched-element>
+<matched-element start="178" stop="181" score="4.81034" pvalue="0.00701">
+<sequence>CGAC</sequence>
+<mem:qvalue>0.268</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <mem:has-qvalues>yes</mem:has-qvalues>

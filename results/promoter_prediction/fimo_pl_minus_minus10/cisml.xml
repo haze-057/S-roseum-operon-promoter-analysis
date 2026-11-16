@@ -82,30 +82,22 @@ clusterid CDATA #IMPLIED
 </parameters>
 <pattern accession="TASVVT" name="MEME-1">
 <scanned-sequence accession="0" name="0">
-<matched-element start="146" stop="151" score="5.56452" pvalue="0.00521">
+<matched-element start="100" stop="105" score="5.56452" pvalue="0.00521">
 <sequence>CACGGT</sequence>
 <mem:qvalue>1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="1" name="1">
-<matched-element start="202" stop="207" score="5.01613" pvalue="0.00817">
-<sequence>CACCGT</sequence>
+<matched-element start="280" stop="285" score="5.3871" pvalue="0.00609">
+<sequence>GAGGGT</sequence>
 <mem:qvalue>1</mem:qvalue>
 </matched-element>
-<matched-element start="229" stop="234" score="5.01613" pvalue="0.00817">
-<sequence>CACCGT</sequence>
+<matched-element start="235" stop="240" score="5.16129" pvalue="0.00733">
+<sequence>CAGCCT</sequence>
 <mem:qvalue>1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="2" name="2">
-<matched-element start="49" stop="54" score="5.12903" pvalue="0.00751">
-<sequence>CACCCT</sequence>
-<mem:qvalue>1</mem:qvalue>
-</matched-element>
-<matched-element start="253" stop="258" score="5.12903" pvalue="0.00751">
-<sequence>CACCCT</sequence>
-<mem:qvalue>1</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <mem:has-qvalues>yes</mem:has-qvalues>
 </pattern>

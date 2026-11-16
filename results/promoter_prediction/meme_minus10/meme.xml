@@ -246,7 +246,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="TASVVT" alt="MEME-1" width="6" sites="1619" ic="5.1" re="5.6" llr="6339" p_value="2.1e-1382" e_value="1.9e-185" bayes_threshold="5.39754" elapsed_time="37.482914">
+<motif id="motif_1" name="TASVVT" alt="MEME-1" width="6" sites="1619" ic="5.1" re="5.6" llr="6339" p_value="2.1e-1382" e_value="1.9e-185" bayes_threshold="5.39754" elapsed_time="31.116619">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

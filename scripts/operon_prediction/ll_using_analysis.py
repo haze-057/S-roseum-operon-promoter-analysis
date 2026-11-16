@@ -23,6 +23,11 @@ def distances_search(pr_list: pd.DataFrame, ll_list: list, strand: str, ll: floa
                 if len(op) > 1:
                     yield op
                 op = []
+        else:
+            if len(op) > 1:
+                yield op
+            op = []
+
     if len(op) > 1:
         yield op
 

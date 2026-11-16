@@ -12,9 +12,9 @@ def intercds_distances(cdss: pd.DataFrame, pairs: pd.DataFrame,) -> tuple[np.nda
     not_within_operon = np.array([])
     for i in range(pairs.shape[0]):
         if pairs.iloc[i]['pair_type'] == 'KOP':
-            within_operon = np.append(within_operon, cdss[cdss['gene'] == pairs.iloc[i]['gene_2']].iloc[0]['start'] - cdss[cdss['gene'] == pairs.iloc[i]['gene_1']].iloc[0]['end'] - 1)
+            within_operon = np.append(within_operon, cdss[cdss['gene'] == pairs.iloc[i]['gene_2']].iloc[0]['start'] - cdss[cdss['gene'] == pairs.iloc[i]['gene_1']].iloc[0]['end'] )
         else:
-            not_within_operon = np.append(not_within_operon, cdss[cdss['gene'] == pairs.iloc[i]['gene_2']].iloc[0]['start'] - cdss[cdss['gene'] == pairs.iloc[i]['gene_1']].iloc[0]['end'] - 1)
+            not_within_operon = np.append(not_within_operon, cdss[cdss['gene'] == pairs.iloc[i]['gene_2']].iloc[0]['start'] - cdss[cdss['gene'] == pairs.iloc[i]['gene_1']].iloc[0]['end'])
     return within_operon, not_within_operon        
 
 def likehood_calculation(within_op: np.ndarray, not_within_op: np.ndarray, dist: int, n_bins: int, a: float = 0.5, w_bins: int = 10) -> float:

@@ -14,7 +14,14 @@ def export_pr_ll(op_list: list, from_fasta: str, output_path: Path, strand: str 
             seq.append([str(i), from_fasta[max(0, operon[0][1]-300):operon[0][1]]])
     else:
         for i, operon in enumerate(op_list):
-            seq.append([str(i), from_fasta[operon[0][2]:operon[0][2]+300].reverse_complement()])
+            operon_end = max(gene[2] for gene in operon)
+
+            seq.append([
+                str(i),
+                from_fasta[
+                    operon_end:operon_end + 300
+                ].reverse_complement()
+            ])
     r_sequences = [
         SeqRecord(
             Seq(sequence),

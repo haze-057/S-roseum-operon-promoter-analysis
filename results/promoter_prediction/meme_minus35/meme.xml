@@ -246,7 +246,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="YGAC" alt="MEME-1" width="4" sites="1978" ic="2.8" re="2.7" llr="3649" p_value="2.6e-774" e_value="4.0e+305" bayes_threshold="4.23671" elapsed_time="39.039604">
+<motif id="motif_1" name="YGAC" alt="MEME-1" width="4" sites="1978" ic="2.8" re="2.7" llr="3649" p_value="2.6e-774" e_value="4.0e+305" bayes_threshold="4.23671" elapsed_time="32.302663">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

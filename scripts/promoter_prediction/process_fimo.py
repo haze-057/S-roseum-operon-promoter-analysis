@@ -8,6 +8,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 
 def promoters_on_seq(el_10_file_name: str, el_35_file_name: str, output_name: str):
+    print(f"Reading: {BASE_DIR / el_10_file_name}")
     el_10_table = pd.read_csv(
         BASE_DIR / el_10_file_name, sep="\t", comment="#", dtype={"sequence_name": str}
     )

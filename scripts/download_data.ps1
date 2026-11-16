@@ -2,7 +2,7 @@ param([string]$Python = $env:PYTHON)
 
 $ErrorActionPreference = "Stop"
 
-$ProjectRoot = $PSScriptRoot
+$ProjectRoot = Split-Path -Parent $PSScriptRoot
 $DataDir = Join-Path $ProjectRoot "data"
 
 if (-not $Python) {

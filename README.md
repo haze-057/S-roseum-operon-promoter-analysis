@@ -130,7 +130,3 @@ The resulting table is saved as `results/operons_with_promoters.csv`.
 ## Additional output files
 
 Additional intermediate files generated during the analyses are available in the `results/` directory.
-
-## Additional output files
-
-Additional intermediate files generated during the analyses are available in the `results/` directory.

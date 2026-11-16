@@ -1,0 +1,6 @@
+##gff-version 3
+0	fimo	nucleotide_motif	146	151	22.8	+	.	Name=TASVVT_0+;Alias=MEME-1;ID=TASVVT-MEME-1-1-0;pvalue=0.00521;qvalue=1;sequence=CACGGT;
+1	fimo	nucleotide_motif	202	207	20.9	+	.	Name=TASVVT_1+;Alias=MEME-1;ID=TASVVT-MEME-1-1-1;pvalue=0.00817;qvalue=1;sequence=CACCGT;
+1	fimo	nucleotide_motif	229	234	20.9	+	.	Name=TASVVT_1+;Alias=MEME-1;ID=TASVVT-MEME-1-2-1;pvalue=0.00817;qvalue=1;sequence=CACCGT;
+2	fimo	nucleotide_motif	49	54	21.2	+	.	Name=TASVVT_2+;Alias=MEME-1;ID=TASVVT-MEME-1-1-2;pvalue=0.00751;qvalue=1;sequence=CACCCT;
+2	fimo	nucleotide_motif	253	258	21.2	+	.	Name=TASVVT_2+;Alias=MEME-1;ID=TASVVT-MEME-1-2-2;pvalue=0.00751;qvalue=1;sequence=CACCCT;

@@ -1,58 +1,107 @@
+
+import csv
 import json
+from collections import defaultdict
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 
-def operon_search(promoters: list, pr_groups: list) -> list:
-    a, b = 0, 0
-    while not (a == len(promoters) - 1 and b == len(pr_groups)-1):
-        if (pr_groups[b][0][1] - promoters[a][1] >= 25 and pr_groups[b][0][1] - promoters[a][1] <= 41):
-            yield (pr_groups[b], promoters[a])
-        if (pr_groups[b][0][1] - promoters[a][1] < 25 or a == len(promoters) - 1) and b != len(pr_groups) - 1:
-            b+=1
-        else:
-            a+=1
-    if (pr_groups[b][0][1] - promoters[a][1] >= 25 and pr_groups[b][0][1] - promoters[a][1] <= 41):
-        yield (pr_groups[b], promoters[a])
-    
+def operons_with_promoters(operon_path: Path, promoter_path: Path,
+                          replicon: str, strand: str) -> list:
 
-def operons_on_seq(dist_file_name: str, pr_file_name: str, output_name: str):
-    with open(dist_file_name, "r") as f:
-        chr_plus_d = json.load(f)
+    with operon_path.open(encoding="utf-8") as f:
+        operons = json.load(f)
 
-    with open(pr_file_name, "r") as f:
-        chr_plus_pr = json.load(f)
+    with promoter_path.open(encoding="utf-8") as f:
+        promoters = json.load(f)
 
-    with open(output_name, "w") as f:
-        json.dump(list(operon_search(chr_plus_pr, chr_plus_d)), f)
-        print(len(list(operon_search(chr_plus_pr, chr_plus_d))))
+    promoter_groups = defaultdict(list)
+
+    for hit35, hit10 in promoters[1:]:
+        operon_id = str(hit35[2])
+
+        if str(hit10[2]) != operon_id:
+            raise ValueError("Promoter elements belong to different operons")
+
+        promoter_groups[operon_id].append((hit35, hit10))
+
+    results = []
+
+    for i, operon in enumerate(operons):
+        operon_id = str(i)
+        genes = [gene[4] for gene in operon]
+
+        operon_start = min(gene[1] for gene in operon)
+        operon_end = max(gene[2] for gene in operon)
+
+        matches = promoter_groups.get(operon_id, [])
+
+        if not matches:
+            matches = [(None, None)]
+
+        for hit35, hit10 in matches:
+
+            if hit35:
+                if strand == "plus":
+                    genomic35_start = operon_start - 300 + hit35[3]
+                    genomic35_end = operon_start - 300 + hit35[4]
+                    genomic10_start = operon_start - 300 + hit10[3]
+                    genomic10_end = operon_start - 300 + hit10[4]
+                else:
+                    genomic35_start = operon_end + 301 - hit35[4]
+                    genomic35_end = operon_end + 301 - hit35[3]
+                    genomic10_start = operon_end + 301 - hit10[4]
+                    genomic10_end = operon_end + 301 - hit10[3]
+            else:
+                genomic35_start = genomic35_end = None
+                genomic10_start = genomic10_end = None
+
+            results.append({
+                "replicon": replicon,
+                "strand": strand,
+                "operon_id": operon_id,
+                "genes": ", ".join(map(str, genes)),
+                "locus_tags": ", ".join(str(gene[5]) for gene in operon),
+                "gene_count": len(genes),
+                "operon_start": operon_start,
+                "operon_end": operon_end,
+                "minus35_start": hit35[3] if hit35 else None,
+                "minus10_start": hit10[3] if hit10 else None,
+                "minus35_genomic_start": genomic35_start,
+                "minus35_genomic_end": genomic35_end,
+                "minus10_genomic_start": genomic10_start,
+                "minus10_genomic_end": genomic10_end,
+                "distance": hit10[3] - hit35[3] if hit35 else None,
+                "pvalue35": hit35[7] if hit35 else None,
+                "pvalue10": hit10[7] if hit10 else None,
+            })
+
+    return results
 
 
-operons_on_seq("jsons/chr_plus_distances.json", "jsons/pred_pr_chr_plus_chain.json", "jsons/res/chr_plus.json")
-operons_on_seq("jsons/chr_minus_distances.json", "jsons/pred_pr_chr_minus_chain.json", "jsons/res/chr_minus.json")
-operons_on_seq("jsons/pl_plus_distances.json", "jsons/pred_pr_pl_plus_chain.json", "jsons/res/pl_plus.json")
-operons_on_seq("jsons/pl_minus_distances.json", "jsons/pred_pr_pl_minus_chain.json", "jsons/res/pl_minus.json")
+results = []
 
-# print(len(list(operon_search(chr_plus_pr, chr_plus_d))))
-# results = list(operon_search(chr_plus_pr, chr_plus_d))
+for replicon in ("chr", "pl"):
+    for strand in ("plus", "minus"):
+        results.extend(
+            operons_with_promoters(
+                BASE_DIR / "results/operon_prediction_ll"
+                / f"{replicon}_{strand}_distances_ll.json",
 
-# unique_groups = {
-#     (group[0][1], group[-1][2])
-#     for group, promoter in results
-# }
+                BASE_DIR / "results/promoter_prediction"
+                / f"pr_{replicon}_{strand}",
 
-# print("Всего совпадений:", len(results))
-# print("Уникальных групп:", len(unique_groups))
+                replicon,
+                strand
+            )
+        )
 
-# count = []
-# u = 0
-# for idx, i in enumerate(results):
-#     a = i[0][0][1]
-#     b = i[0][-1][2]
-#     while u < len(chr_plus_pr) and chr_plus_pr[u][1] < b:
-#         if (chr_plus_pr[u][1] <= b or chr_plus_pr[u][0] >= a) and idx not in count:
-#             count.append(idx)
-#         u+=1
-#     # if (chr_plus_pr[u][1] <= b or chr_plus_pr[u][0] >= a) and idx not in count:
-#     #     count.append(idx)
-#     if u >= len(chr_plus_pr):
-#         break
-# print(len(count))
+output_path = BASE_DIR / "results/operons_with_promoters.csv"
+
+with output_path.open("w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=results[0].keys())
+    writer.writeheader()
+    writer.writerows(results)
+
+print(f"Saved {len(results)} rows to {output_path}")

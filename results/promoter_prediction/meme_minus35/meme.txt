@@ -1,0 +1,131 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 5.5.9 (Release date: Fri Nov 21 15:33:51 2025 -0800)
+
+For further information on how to interpret these results please access https://meme-suite.org/meme.
+To get a copy of the MEME Suite software please access https://meme-suite.org.
+
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to
+discover motifs in biopolymers",
+Proceedings of the Second International Conference on Intelligent Systems
+for Molecular Biology, pp. 28-36, AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+PRIMARY SEQUENCES= /home/hello/projects/S_roseum_minireview/data/S_lividans/promoters_minus35.fasta
+CONTROL SEQUENCES= --none--
+ALPHABET= ACGT
+
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme /home/hello/projects/S_roseum_minireview/data/S_lividans/promoters_minus35.fasta -dna -mod oops -minw 4 -maxw 4 -oc /home/hello/projects/S_roseum_minireview/results/promoter_prediction/meme_minus35 
+
+model:  mod=          oops    nmotifs=         1    evt=           inf
+objective function:           em=       E-value of product of p-values
+                              starts=   E-value of product of p-values
+strands: +
+width:  minw=            4    maxw=            4
+nsites: minsites=     1978    maxsites=     1978    wnsites=       0.8
+theta:  spmap=         uni    spfuzz=        0.5
+em:     prior=   dirichlet    b=            0.01    maxiter=        50
+        distance=    1e-05
+trim:   wg=             11    ws=              1    endgaps=       yes
+data:   n=           29670    N=            1978
+sample: seed=            0    hsfrac=          0
+        searchsize=  29670    norand=         no    csites=       1000
+Letter frequencies in dataset:
+A 0.151 C 0.329 G 0.337 T 0.183 
+Background letter frequencies (from file dataset with add-one prior applied):
+A 0.151 C 0.329 G 0.337 T 0.183 
+Background model order: 0
+********************************************************************************
+
+
+********************************************************************************
+MOTIF YGAC MEME-1	width =   4  sites = 1978  llr = 3649  E-value = 4.0e+305
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif YGAC MEME-1 Description
+--------------------------------------------------------------------------------
+Simplified        A  ::52
+pos.-specific     C  3116
+probability       G  292:
+matrix            T  5:21
+
+         bits    2.7     
+                 2.5     
+                 2.2     
+                 1.9     
+Relative         1.6     
+Entropy          1.4     
+(2.7 bits)       1.1  *  
+                 0.8  *  
+                 0.5 ****
+                 0.3 ****
+                 0.0 ----
+
+Multilevel           TGAC
+consensus            C  A
+sequence             G   
+                         
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif YGAC MEME-1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 4 n= 23736 bayes= 4.23671 E= 4.0e+305 
+ -1759    -17    -51    137 
+  -822   -193    140   -301 
+   183   -184    -86      2 
+    54     96   -308    -84 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif YGAC MEME-1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 4 nsites= 1978 E= 4.0e+305 
+ 0.000000  0.291709  0.235592  0.472700 
+ 0.000506  0.085945  0.890799  0.022750 
+ 0.536906  0.091507  0.185541  0.186047 
+ 0.219919  0.637513  0.039939  0.102629 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif YGAC MEME-1 regular expression
+--------------------------------------------------------------------------------
+[TCG]GA[CA]
+--------------------------------------------------------------------------------
+
+
+
+
+Time 39.04 secs.
+
+********************************************************************************
+
+********************************************************************************
+Stopped because requested number of motifs (1) found.
+********************************************************************************
+
+CPU: debian
+
+********************************************************************************

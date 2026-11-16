@@ -1,0 +1,2 @@
+##gff-version 3
+0	fimo	nucleotide_motif	3	8	24.1	+	.	Name=TASVVT_0+;Alias=MEME-1;ID=TASVVT-MEME-1-1-0;pvalue=0.00386;qvalue=1;sequence=TATGCT;

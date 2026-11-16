@@ -1,0 +1,8 @@
+motif_id	motif_alt_id	sequence_name	start	stop	strand	score	p-value	q-value	matched_sequence
+YGAC	MEME-1	0	145	148	+	5.24138	0.00383	0.387	TGAC
+YGAC	MEME-1	0	218	221	+	4.81034	0.00701	0.387	CGAC
+YGAC	MEME-1	0	285	288	+	4.81034	0.00701	0.387	CGAC
+
+# FIMO (Find Individual Motif Occurrences): Version 5.5.9 compiled on May 27 2026 at 12:41:17
+# The format of this file is described at https://meme-suite.org/meme/doc/fimo-output-format.html#tsv_results.
+# fimo --norc --thresh 0.01 --oc /home/hello/projects/S_roseum_minireview/results/promoter_prediction/fimo_pl_plus_minus35 /home/hello/projects/S_roseum_minireview/results/promoter_prediction/meme_minus35/meme.txt /home/hello/projects/S_roseum_minireview/data/S_roseum/pl_plus_upstream.fasta

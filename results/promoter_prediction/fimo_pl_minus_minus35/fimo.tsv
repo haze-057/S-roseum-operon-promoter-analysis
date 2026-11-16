@@ -1,0 +1,19 @@
+motif_id	motif_alt_id	sequence_name	start	stop	strand	score	p-value	q-value	matched_sequence
+YGAC	MEME-1	1	9	12	+	5.24138	0.00383	0.258	TGAC
+YGAC	MEME-1	0	125	128	+	5.24138	0.00383	0.258	TGAC
+YGAC	MEME-1	0	20	23	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	0	23	26	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	46	49	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	70	73	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	106	109	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	109	112	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	172	175	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	0	185	188	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	2	187	190	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	1	220	223	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	0	224	227	+	4.81034	0.00701	0.258	CGAC
+YGAC	MEME-1	0	230	233	+	4.81034	0.00701	0.258	CGAC
+
+# FIMO (Find Individual Motif Occurrences): Version 5.5.9 compiled on May 27 2026 at 12:41:17
+# The format of this file is described at https://meme-suite.org/meme/doc/fimo-output-format.html#tsv_results.
+# fimo --norc --thresh 0.01 --oc /home/hello/projects/S_roseum_minireview/results/promoter_prediction/fimo_pl_minus_minus35 /home/hello/projects/S_roseum_minireview/results/promoter_prediction/meme_minus35/meme.txt /home/hello/projects/S_roseum_minireview/data/S_roseum/pl_minus_upstream.fasta

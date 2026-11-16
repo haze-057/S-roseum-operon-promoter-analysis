@@ -1,0 +1,135 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 5.5.9 (Release date: Fri Nov 21 15:33:51 2025 -0800)
+
+For further information on how to interpret these results please access https://meme-suite.org/meme.
+To get a copy of the MEME Suite software please access https://meme-suite.org.
+
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to
+discover motifs in biopolymers",
+Proceedings of the Second International Conference on Intelligent Systems
+for Molecular Biology, pp. 28-36, AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+PRIMARY SEQUENCES= /home/hello/projects/S_roseum_minireview/data/S_lividans/promoters_minus10.fasta
+CONTROL SEQUENCES= --none--
+ALPHABET= ACGT
+
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme /home/hello/projects/S_roseum_minireview/data/S_lividans/promoters_minus10.fasta -dna -mod zoops -minw 6 -maxw 6 -oc /home/hello/projects/S_roseum_minireview/results/promoter_prediction/meme_minus10 
+
+model:  mod=         zoops    nmotifs=         1    evt=           inf
+objective function:           em=       E-value of product of p-values
+                              starts=   E-value of product of p-values
+strands: +
+width:  minw=            6    maxw=            6
+nsites: minsites=        2    maxsites=     1978    wnsites=       0.8
+theta:  spmap=         uni    spfuzz=        0.5
+em:     prior=   dirichlet    b=            0.01    maxiter=        50
+        distance=    1e-05
+trim:   wg=             11    ws=              1    endgaps=       yes
+data:   n=           41538    N=            1978
+sample: seed=            0    hsfrac=          0
+        searchsize=  41538    norand=         no    csites=       1000
+Letter frequencies in dataset:
+A 0.183 C 0.281 G 0.332 T 0.204 
+Background letter frequencies (from file dataset with add-one prior applied):
+A 0.183 C 0.281 G 0.332 T 0.204 
+Background model order: 0
+********************************************************************************
+
+
+********************************************************************************
+MOTIF TASVVT MEME-1	width =   6  sites = 1619  llr = 6339  E-value = 1.9e-185
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif TASVVT MEME-1 Description
+--------------------------------------------------------------------------------
+Simplified        A  :a122:
+pos.-specific     C  2:333:
+probability       G  2:443:
+matrix            T  6:211a
+
+         bits    2.5  *    
+                 2.2  *   *
+                 2.0  *   *
+                 1.7  *   *
+Relative         1.5  *   *
+Entropy          1.2  *   *
+(5.6 bits)       1.0  *   *
+                 0.7 **   *
+                 0.5 **   *
+                 0.2 **   *
+                 0.0 ------
+
+Multilevel           TAGGCT
+consensus              CCG 
+sequence                AA 
+                           
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif TASVVT MEME-1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 6 n= 31648 bayes= 5.39754 E= 1.9e-185 
+ -1730    -50    -91    161 
+   245  -1730  -1730  -1730 
+   -48     29     13    -32 
+    23     -5     30    -96 
+    31     31      0   -111 
+ -1730  -1730  -1730    229 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif TASVVT MEME-1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 6 nsites= 1619 E= 1.9e-185 
+ 0.000000  0.198271  0.177270  0.624460 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.130945  0.342187  0.363187  0.163681 
+ 0.214330  0.270537  0.410130  0.105003 
+ 0.226065  0.347128  0.332304  0.094503 
+ 0.000000  0.000000  0.000000  1.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif TASVVT MEME-1 regular expression
+--------------------------------------------------------------------------------
+TA[GC][GCA][CGA]T
+--------------------------------------------------------------------------------
+
+
+
+
+Time 37.48 secs.
+
+********************************************************************************
+
+********************************************************************************
+Stopped because requested number of motifs (1) found.
+********************************************************************************
+
+CPU: debian
+
+********************************************************************************
